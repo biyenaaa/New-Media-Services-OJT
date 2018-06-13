@@ -1,8 +1,7 @@
 <?php
-    $databaseHost = 'phpmyadmin.nmscreative.com';
-    $databaseName = 'ojt_20180611142657';
-    $databaseUsername = 'u20180611142657';
-    $databasePassword = '20180611142657';
-
-    $mysqli = mysqli_connect($databaseHost, $databaseName, $databaseUsername, $databasePassword, $databaseName);
-?>
+$GLOBALS['dbconfig'] = array(
+	'host' => 'phpmyadmin.nmscreative.com',
+	'user' => 'u20180611142657',
+	'password' => '20180611142657',
+	'db' => 'ojt_20180611142657'
+);
