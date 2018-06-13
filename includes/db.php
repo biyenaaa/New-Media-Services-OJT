@@ -1,7 +1,7 @@
 <?php
 if (!class_exists('Db')) {
 	class Db{
-		private function connect() {
+		public function connect() {
 			global $dbconfig;
 
 			$connection = new mysqli($dbconfig['host'], $dbconfig['user'], $dbconfig['password'], $dbconfig['db']);
@@ -31,3 +31,4 @@ if (!class_exists('Db')) {
 		}
 	}
 }
+?>
