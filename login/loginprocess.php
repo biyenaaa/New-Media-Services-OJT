@@ -1,40 +1,24 @@
 <?php
-session_start();
-require_once("../class/class_login.php");
-require_once("../inc/my_funcs.php");
-require_once("../class/class_mysql_connect.php");
+	include "../includes/db_config.php";
+	include "../includes/db.php";
 
-$connection=new MySql_Connection();
-$connection->connect();
+	session_start();
+	
+	if($_SERVER["REQUEST_METHOD"] === "POST") {
+		if(empty($_POST['username']) || empty($_POST['password'])) {
+		die(var_dump($_POST));
+		} else {
+			$username = $_POST['username'];
+			$password = $_POST['password'];
 
-$username=$_POST['uname'];
-$password=$_POST['pword'];
-$login=new login();
-$login->username=$username;
-
-if ($login->searchByUsername()){
-	if($login->retries<5){
-		if($login->password==$password){
-			$_SESSION['id']=$login->id;
-			$_SESSION['username']=$login->username;
-			$_SESSION['fullname']=$login->fullname;
-			$_SESSION['user_type']=$login->user_type;
-			$login->resetRetries();
-			goHomePage();
-			
-		}else{
-			$login->updateRetries();
-			$_SESSION['errmsg']="Invalid Password <br/> Retries Left:".( 4-$login->retries);
-			goLoginPage();
+			$db =  new Db();
+			$result = $db->query("SELECT * FROM accounts WHERE username='$username' AND password=md5('$password');");
+			if($result) {
+				header("location: index.php");
+			} else {
+				$_SESSION['errmsg'] = 'Username or Password is invalid.';
+				header("location: login.php");
+			}
 		}
-	}else{
-		goLoginPage();
-		$_SESSION['errmsg']="Account is Blocked";
 	}
-}else{
-	goLoginPage();
-	$_SESSION['errmsg']="Account does not exist";
-}	
-
-
 ?>
