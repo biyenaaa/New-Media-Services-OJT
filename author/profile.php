@@ -7,21 +7,19 @@ session_start();
 $error = "";
 $db = new Db();
 
-if (isset($_SESSION['user_id'])){
+/**if (isset($_SESSION['user_id'])){
     echo "Welcome user ".$_SESSION['user_id'];
     #$acc_id = $_SESSION['user_id'];
 }
+**/
 
 if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
     $acc_id = $_SESSION['user_id'];
 
-    die($acc_id);
 
-
-
-    if(empty($title) || empty($password)){
+    if(empty($title) || empty($content)){
         if(empty($title)){
             echo "<p>Please add a title.</p>";
             echo $error;
