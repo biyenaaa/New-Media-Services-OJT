@@ -24,8 +24,8 @@
 <body>
 <ul class="navbar">
 	<a href="index.php">Home</a>
-	<a href="login.php">Sign-in</a>
-	<a href="registration.php">Sign-up</a>
+	<a href="login/login.php">Sign-in</a>
+	<a href="registration/register.php">Sign-up</a>
 </ul>
 
 <h1>Blog&White</h1>
