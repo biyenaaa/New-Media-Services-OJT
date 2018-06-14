@@ -1,6 +1,6 @@
 <?php
-	include "includes/db_config.php";
-	include "includes/db.php";
+	include "../includes/db_config.php";
+	include "../includes/db.php";
 
 	session_start();
 
@@ -17,6 +17,16 @@
 			$username = $row['username'];
 			$datepublished = $row['date_published'];
 			$content = $row['content'];
+
+			$comments = $db->query("SELECT c.name, c.comment, c.date_commented FROM comments as c NATURAL JOIN posts WHERE posts.post_id = '$postid' ORDER BY c.date_commented DESC;");
+
+			while($rowcom = mysqli_fetch_array($comments)) {
+				$name = $rowcom['name'];
+				$comment = $rowcom['comment'];
+				$datecommented = $rowcom['date_commented'];
+
+				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
+			}
 		}
 		
 	}
@@ -33,8 +43,15 @@
 	echo '<h1> '.$title.' </h1>';
 	echo '<h2> Author: '.$username.' '.$datepublished.' </h2>';
 	echo '<p> '.$content.' <p>'
-
 ?>
+
+<br><br>
+
+<h3>Comments</h3>
+<table>
+	<?php print("$output")?>
+</table>
+
 
 </body>
 </html>
