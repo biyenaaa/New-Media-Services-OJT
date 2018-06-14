@@ -9,10 +9,10 @@
 	while($row = mysqli_fetch_array($result)) {
 		$title = $row['title'];
 		$username = $row['username'];
-		$datepublished = $row['date_published'];
+		$date_published = $row['date_published'];
 		$postid = $row['post_id'];
 
-		$output = '<div> <form action="getpost.php" method="GET"><input type="hidden" name="post_id" value="'.$postid.'"><input type="hidden" name="title" value="'.$title.'"><button type="submit" class="submitbutton"> '.$title.' </button></form> '.$username.' '.$datepublished.' </div>';
+		$output = '<div> <form action="post/getpost.php" method="GET"><input type="hidden" name="post_id" value="'.$postid.'"><button type="submit" class="submitbutton"> '.$title.' </button></form> '.$username.' '.$date_published.' </div>';
 	}
 ?>
 
@@ -24,8 +24,8 @@
 <body>
 <ul class="navbar">
 	<a href="index.php">Home</a>
-	<a href="login/login.php">Sign-in</a>
-	<a href="registration/register.php">Sign-up</a>
+	<a href="login.php">Sign-in</a>
+	<a href="registration.php">Sign-up</a>
 </ul>
 
 <h1>Blog&White</h1>
