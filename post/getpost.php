@@ -35,7 +35,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>'.$title.'</title>
 </head>
 <body>
 
@@ -51,7 +51,12 @@
 <table>
 	<?php print("$output")?>
 </table>
-
-
+<h4>Leave a comment:</h4>
+<form class="comment" action="comment.php" method="POST">
+	<input type="text" name="name" placeholder="Name">
+	<input type="text" name="comment" placeholder="Comment">
+	<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
+	<button type="submit">Enter</button>
+</form>
 </body>
 </html>
