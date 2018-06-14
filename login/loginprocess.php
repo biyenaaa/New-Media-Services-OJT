@@ -12,7 +12,7 @@
 			$password = $_POST['password'];
 
 			$db =  new Db();
-			$result = $db->query("SELECT * FROM accounts WHERE username='$username' AND password=md5('$password');");
+			$result = $db->query("SELECT * FROM accounts WHERE username='$username' AND password=md5('$password') AND STATUS = 1;");
 			if($result) {
 				header("location: index.php");
 			} else {
