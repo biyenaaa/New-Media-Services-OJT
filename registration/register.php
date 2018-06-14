@@ -26,6 +26,7 @@ if(isset($_POST['Submit'])){
 		}
 	}else{
 		$result = $db->query("INSERT INTO accounts(username, password, email) VALUES('$username', md5('$password'), '$email'); ");
+		header("location: index.php");
 
 		#echo "<font color='green'>Data added successfully.</font><br>";
 	}
@@ -43,7 +44,7 @@ if(isset($_POST['Submit'])){
 	<br/>
 
 	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="registration">
-		<table//>
+		<table>
 			<!--username-->
 			<tr>
 				<td>Username</td>

@@ -12,9 +12,18 @@
 			$password = $_POST['password'];
 
 			$db =  new Db();
-			$result = $db->query("SELECT * FROM accounts WHERE username='$username' AND password=md5('$password') AND STATUS = 1;");
+			$result = $db->query("SELECT acc_id FROM accounts WHERE username='$username' AND password=md5('$password');");
 			if($result) {
-				header("location: index.php");
+
+				// fetch acc_id
+				$user = $result->fetch_assoc();
+
+				// session var = 
+				//die(var_dump($user['acc_id']));
+				//die(var_dump($user['acc_id']));
+				$_SESSION['user_id'] =  $user['acc_id'];
+				$_SESSION['user_name'] = $user['username'];
+				header("location: ../author/profile.php");
 			} else {
 				$_SESSION['errmsg'] = 'Username or Password is invalid.';
 				header("location: login.php");
