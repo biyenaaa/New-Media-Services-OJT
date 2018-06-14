@@ -2,12 +2,24 @@
 include "../includes/db_config.php";
 include "../includes/db.php";
 
+session_start();
+
 $error = "";
 $db = new Db();
 
-if(isset($_POST['Add'])){
+if (isset($_SESSION['user_id'])){
+    echo "Welcome user ".$_SESSION['user_id'];
+    #$acc_id = $_SESSION['user_id'];
+}
+
+if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $acc_id = $_SESSION['user_id'];
+
+    die($acc_id);
+
+
 
     if(empty($title) || empty($password)){
         if(empty($title)){
@@ -20,7 +32,7 @@ if(isset($_POST['Add'])){
             echo $error;
         }
     }else{
-        $result = $db->query("INSERT INTO posts(title, content, acc_id) VALUES ('$title', '$content', (SELECT acc_id FROM accounts WHERE username = 'lovelyn'))");
+        $result = $db->query("INSERT INTO posts(title, content, acc_id) VALUES ('$title', '$content', '$acc_id')");
     }
 }
 
