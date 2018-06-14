@@ -23,7 +23,7 @@
 				}
 			?>
 			<button type="submit">Sign-in</button><br/>
-				<center class="psw">Don't have an account? <a href="localhost/New-Media-Services-OJT/registration.php">Sign-up</a></center>
+				<center class="psw">Don't have an account? <a href="../registration/register.php">Sign-up</a></center>
 		</center>
 	</div>
 </form>
