@@ -15,6 +15,7 @@
 			<label for="psw">Password</label>
 			<input type="password" name="password" required><br/>
 			<?PHP
+				session_start();
 				if (isset($_SESSION['errmsg'])) {
 					echo $_SESSION['errmsg'];
 					unset($_SESSION['errmsg']);

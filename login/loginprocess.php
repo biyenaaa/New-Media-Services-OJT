@@ -11,12 +11,12 @@
 			$password = $_POST['password'];
 
 			$db =  new Db();
-			$result = $db->query("SELECT acc_id , username FROM accounts WHERE username='$username' AND password=md5('$password');");
-			if($result) {
+			$result = $db->query("SELECT acc_id, username FROM accounts WHERE username='$username' AND password=md5('$password');");
 
-				// fetch acc_id
+			// fetch acc_id
 				$user = $result->fetch_assoc();
 
+			if(!empty($user['acc_id'])) {
 				// session var = 
 				//die(var_dump($user['acc_id']));
 				$_SESSION['user_id'] =  $user['acc_id'];
