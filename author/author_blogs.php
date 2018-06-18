@@ -35,6 +35,10 @@ $db = new Db();
 					<a href="profile.php">Create a New Blog</a>
 				</li>
 
+				<li role="logout" class="active">
+					<a href="../logout.php">Logout</a>
+				</li>
+
 			</ul>
 
 		</div>
