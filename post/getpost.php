@@ -26,6 +26,7 @@
 				$datecommented = $rowcom['date_commented'];
 
 				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
+			
 			}
 		}
 		
@@ -42,7 +43,7 @@
 <?php
 	echo '<h1> '.$title.' </h1>';
 	echo '<h2> Author: '.$username.' '.$datepublished.' </h2>';
-	echo '<p> '.$content.' <p>'
+	echo '<p> '.$content.' <p>';
 ?>
 
 <br><br>

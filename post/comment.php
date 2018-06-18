@@ -13,8 +13,8 @@
 			$postid = $_POST['post_id'];
 
 			$db = new Db();
-			$comment = $db->query("INSERT INTO comments(name, comment, post_id) VALUES('$name, $comment, $postid');");
-			//header("location: getpost.php");
+			$comment = $db->query("INSERT INTO `comments` (`post_id`, `name`, `comment`, `date_commented`) VALUES ('$postid', '$name', '$comment', CURRENT_TIMESTAMP)");
+			header("location: ../index.php");
 
 			die(var_dump($comment));
 
