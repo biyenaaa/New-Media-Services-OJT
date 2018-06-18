@@ -26,7 +26,7 @@ if(isset($_POST['Submit'])){
 		}
 	}else{
 		$result = $db->query("INSERT INTO accounts(username, password, email) VALUES('$username', md5('$password'), '$email'); ");
-		header("location: index.php");
+		header("location: ../index.php");
 
 		#echo "<font color='green'>Data added successfully.</font><br>";
 	}
