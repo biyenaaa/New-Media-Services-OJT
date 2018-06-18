@@ -45,12 +45,12 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active">
                     <a href="#">Profile</a>
+                    <a href="../logout.php">Logout</a>
                 </li>
             </ul>
 
         </div>
     </nav>
-
     <div class="container-fluid">
         <?php 
         if (isset($_SESSION['user_name'])){
