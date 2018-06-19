@@ -1,10 +1,8 @@
 
 <?php 
-     //require_once "../includes/loginprocess.php";
 	include "../includes/db_config.php";
 	include "../includes/db.php";
-
-	session_start();
+	require_once "../includes/session.php";
 
 	$db = new Db();
 	$author = $db->query("SELECT username, date_registered FROM accounts ORDER BY date_registered DESC;");
