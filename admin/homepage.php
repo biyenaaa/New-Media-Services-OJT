@@ -27,9 +27,9 @@
 	</head>
 <body>
 <ul class="top-nav">
-	<a href="index.php">Home</a>
-	<a href="login/login.php">Sign-in</a>
-	<a href="registration/register.php">Sign-up</a>
+	<a href="#">Home</a>
+	<!-- <a href="login/login.php">Sign-in</a>
+	<a href="registration/register.php">Sign-up</a> -->
 	<a href="../logout.php">Logout</a>
 </ul>
 
