@@ -1,7 +1,8 @@
 <?php
 include "../includes/db_config.php";
 include "../includes/db.php";
-require_once "../includes/session.php";
+
+session_start();
 
 $error = "";
 $db = new Db();
@@ -27,15 +28,11 @@ $db = new Db();
 				</li>
 
 				<li role="presentation" class="active">
-					<a href="author_blogs.php">My Blogs</a>
+					<a href="author_blogs.php"><span class="glyphicon glyphicon-list-alt"></span> My Blogs</a>
 				</li>
 
 				<li role="profile.php" class="active">
-					<a href="profile.php">Create a New Blog</a>
-				</li>
-
-				<li role="logout" class="active">
-					<a href="../logout.php">Logout</a>
+					<a href="profile.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
 				</li>
 
 			</ul>
@@ -54,32 +51,50 @@ $db = new Db();
 
 			<?php
 			$acc_id = $_SESSION['user_id'];
-			$result = $db -> query("SELECT title, content, date_published FROM posts WHERE acc_id='$acc_id' ");
+			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ");
 
 			while($row = $result->fetch_assoc()){
-				$title = $row['title'];
-				$username = $row['content'];
-				$date_published = $row['date_published'];
+			$title = $row['title'];
+			$username = $row['content'];
+			$date_published = $row['date_published'];
+			$content = $row['content'];
 
-				$output = 
-
-
-				'<tr>
+			$output = 
+			'<tr>
 				<td>'.$title.'</td>
 				<td>'.$date_published.'</td>
 				<td><form action="#" method="GET">
-				<button type="submit" class="view" name="View">View</button>
-				<button type="submit" class="edit" name="Edit">Edit</button>
-				<button type="submit" class="edit" name="Delete">Delete</button>
+					<button type="button" class="view" data-toggle="modal" data-target="#viewContent" name="View">View</button>
+					<button type="submit" class="edit" name="Edit"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+					<button type="submit" class="edit" name="Delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 				</form></td>
+
+				<div class="modal fade" id="viewContent" role="dialog">
+					<div class="modal-dialog">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">'.$title.'</h4>
+							</div>
+							<div class="modal-body">
+								<p>'.$content.'</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				';
 
 				echo $output;
 			}
 			?>
-
 		</tr>
 	</table>
+
+	<br>
 </div>
 
 </body>
