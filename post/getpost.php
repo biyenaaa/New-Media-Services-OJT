@@ -11,7 +11,6 @@
 		} else {
 			$postid = $_GET['post_id'];
 			$result = $db->query("SELECT a.username, p.title, p.date_published, p.content FROM accounts as a NATURAL JOIN posts as p WHERE p.post_id = '$postid';");
-
 			$row = mysqli_fetch_array($result);
 			$title = $row['title'];
 			$username = $row['username'];
@@ -19,15 +18,6 @@
 			$content = $row['content'];
 
 			$comments = $db->query("SELECT c.name, c.comment, c.date_commented FROM comments as c NATURAL JOIN posts WHERE posts.post_id = '$postid' ORDER BY c.date_commented DESC;");
-
-			while($rowcom = mysqli_fetch_array($comments)) {
-				$name = $rowcom['name'];
-				$comment = $rowcom['comment'];
-				$datecommented = $rowcom['date_commented'];
-
-				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
-			
-			}
 		}
 		
 	}
@@ -49,9 +39,21 @@
 <br><br>
 
 <h3>Comments</h3>
-<table>
-	<?php print("$output")?>
-</table>
+
+<?php
+while($rowcom = mysqli_fetch_array($comments)) {
+				$name = $rowcom['name'];
+				$comment = $rowcom['comment'];
+				$datecommented = $rowcom['date_commented'];
+
+				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
+				
+				echo '<table>';
+					print("$output");
+				echo '</table>';
+			}
+?>
+
 <h4>Leave a comment:</h4>
 <form class="comment" action="comment.php" method="POST">
 	<input type="text" name="name" placeholder="Name">
