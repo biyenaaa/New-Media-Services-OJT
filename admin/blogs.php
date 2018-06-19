@@ -1,10 +1,8 @@
 
 <?php 
-     //require_once "../includes/loginprocess.php";
 	include "../includes/db_config.php";
 	include "../includes/db.php";
-
-	session_start();
+	require_once "../includes/session.php";
 
 	$db = new Db();
 	$blog = $db->query("SELECT p.title, p.date_published, a.username FROM posts as p NATURAL JOIN accounts as a ORDER BY date_published DESC;");

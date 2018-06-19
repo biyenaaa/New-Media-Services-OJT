@@ -1,8 +1,7 @@
 <?php
 include "../includes/db_config.php";
 include "../includes/db.php";
-
-session_start();
+require_once "../includes/session.php";
 
 $error = "";
 $db = new Db();
