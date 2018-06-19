@@ -4,6 +4,12 @@
 	include "../includes/db.php";
 	require_once "../includes/session.php";
 
+	// checks if the user logged in is an admin account
+	if($acc_type!=1){
+		header("Location:../login/login.php");
+        exit;
+	}
+
 	$db = new Db();
 	$author = $db->query("SELECT username, date_registered FROM accounts ORDER BY date_registered DESC;");
 	while($row = mysqli_fetch_array($author)){

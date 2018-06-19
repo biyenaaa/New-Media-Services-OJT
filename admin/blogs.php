@@ -4,6 +4,13 @@
 	include "../includes/db.php";
 	require_once "../includes/session.php";
 
+	// checks if the user logged in is an admin account
+	if($acc_type!=1){
+		header("Location:../login/login.php");
+        exit;
+	}
+
+
 	$db = new Db();
 	$blog = $db->query("SELECT p.title, p.date_published, a.username FROM posts as p NATURAL JOIN accounts as a ORDER BY date_published DESC;");
 	while($row = mysqli_fetch_array($blog)){

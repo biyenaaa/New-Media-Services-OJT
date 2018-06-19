@@ -4,6 +4,12 @@
 	include "../includes/db.php";
 	require_once "../includes/session.php";
 
+	// checks if the user logged in is an admin account
+	if($acc_type!=1){
+		header("Location:../login/login.php");
+        exit;
+	}
+
 	$db = new Db();
 	$comment = $db->query("SELECT name, comment, date_commented FROM comments ORDER BY date_commented DESC;");
 	while($row = mysqli_fetch_array($comment)){
