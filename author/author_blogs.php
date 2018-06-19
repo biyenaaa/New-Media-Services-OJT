@@ -20,25 +20,27 @@ $db = new Db();
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<ul class="nav nav-tabs">
-				<li role="presentation" class="active">
-					<a href="#">Profile</a>
-				</li>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="">
+                    <a href="#">Profile</a>
+                </li>
 
-				<li role="presentation" class="active">
-					<a href="author_blogs.php"><span class="glyphicon glyphicon-list-alt"></span> My Blogs</a>
-				</li>
+                <li role="presentation" class="active">
+                    <a href="author_blogs.php"><span class="glyphicon glyphicon-list-alt"></span> My Blogs</a>
+                </li>
 
-				<li role="profile.php" class="active">
-					<a href="profile.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
-				</li>
+                <li role="presentation" class="">
+                    <a href="profile.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
+                </li>
 
-			</ul>
-
-		</div>
-	</nav>
+                <li role="presentation" class="">
+                    <a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 	<div class="container-fluid">
 		<table class="table">

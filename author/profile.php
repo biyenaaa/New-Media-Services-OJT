@@ -6,12 +6,6 @@ require_once "../includes/session.php";
 $error = "";
 $db = new Db();
 
-/**if (isset($_SESSION['user_id'])){
-    echo "Welcome user ".$_SESSION['user_id'];
-    #$acc_id = $_SESSION['user_id'];
-}
-**/
-
 if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -42,18 +36,30 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active">
+                <li role="presentation" class="">
                     <a href="#">Profile</a>
-                    <a href="../logout.php">Logout</a>
+                </li>
+
+                <li role="presentation" class="">
+                    <a href="author_blogs.php"><span class="glyphicon glyphicon-list-alt"></span> My Blogs</a>
+                </li>
+
+                <li role="presentation" class="active">
+                    <a href="profile.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
+                </li>
+
+                <li role="presentation" class="">
+                    <a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 </li>
             </ul>
-
         </div>
     </nav>
+
+
     <div class="container-fluid">
         <?php 
         if (isset($_SESSION['user_name'])){
-            echo "<h3>Welcome author <b>".$_SESSION['user_name'] ."</b></h3>";
+            echo "<h3>Welcome author <b>".$_SESSION['user_name']."</b></h3>";
         }
         ?>
     </div>
