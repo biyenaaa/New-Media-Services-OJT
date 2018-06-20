@@ -46,22 +46,13 @@ $db = new Db();
 		<div class="accordion" id="accordionExample">
 			<?php
 			$acc_id = $_SESSION['user_id'];
-			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ");
+			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ORDER BY date_published DESC; ");
 
 			while($row = $result->fetch_assoc()){
 			$post_id = $row['post_id'];
 			$title = $row['title'];
 			$date_published = $row['date_published'];
 			$content = $row['content'];
-
-			if(!empty($post_id)){
-				$_SESSION['post_id'] = $post_id;
-				$_SESSION['title'] = $title;
-				$_SESSION['date_published'] = $date_published;
-			$_SESSION['content'] = $content;
-			}
-			
-
 
 			$output = '
 			<div class="panel panel-default">
@@ -75,10 +66,10 @@ $db = new Db();
 							<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#'.$post_id.'">View</button>
 						</li>
 						<li>
-							<a href="edit_blog.php" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
+							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
 						</li>
 						<li>
-							<a href="delete.php" role="button" class="btn btn-danger" id="delete" name="edit" onClick=\"return confirm("Are you sure you want to delete " '.$title.')">Delete</a>
+							<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-danger" id="delete">Delete</a>
 						</li>
 					</ul>
 				</div>
