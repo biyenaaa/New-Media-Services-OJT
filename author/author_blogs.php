@@ -32,7 +32,7 @@ $db = new Db();
 				</li>
 
 				<li role="presentation" class="">
-					<a href="profile.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
+					<a href="create_blogs.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
 				</li>
 
 				<li role="presentation" class="">
