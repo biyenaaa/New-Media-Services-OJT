@@ -2,7 +2,6 @@
     include "db_config.php";
     include "db.php";
     session_start();
-     echo "<h3>Welcome author <b>".$_SESSION['user_id'] ."</b></h3>";
         if(isset($_SESSION['user_id'])){
             $checkUserId = $_SESSION['user_id'];
             $checkUser = $_SESSION['user_name'];
@@ -11,7 +10,7 @@
                     $row = mysqli_fetch_array($sessionSql, MYSQLI_ASSOC);
                     $acc_id = $row['acc_id'];
                     $username = $row['username'];
-                    $acc_type = $row['email'];
+                    $email = $row['email'];
                     $password = $row['password'];
                     $acc_type = $row['acc_type'];
                     $date_registered = $row['date_registered'];
