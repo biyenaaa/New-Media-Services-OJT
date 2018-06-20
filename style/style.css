@@ -14,3 +14,24 @@
 	font-weight: bold;
 	text-shadow: 3px 3px 3px rgba(150, 150, 150, 1);
 }
+
+.sideNavigation{
+	height: inherit;
+	background-color: #f5f5ef;
+	margin-top: 5vh;
+	color: #666666;
+}
+
+.content{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.tabPages{
+	border-style: ridge;
+	border-width: thin;
+}
+
+a:link{
+	color: #666666;
+}

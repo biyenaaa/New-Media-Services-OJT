@@ -1,5 +1,5 @@
 <?php
-	include_once "../includes/session.php";
+	//include_once "../includes/session.php";
   include "../includes/db_config.php";
   include "../includes/db.php";
 ?>
@@ -8,11 +8,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style/style.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
@@ -32,6 +32,18 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="../author/create_blogs.php"> Write a Blog <span class="sr-only">(current)</span></a>
+                  </li>';
+                }
+                if(isset($checkUser)and$acc_type=='1'){
+                  echo '
+                  <li class="nav-item">
+                    <a class="nav-link" href="../admin/blogs.php">Blogs <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../admin/authors.php"> Authors <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../admin/comments.php"> Comments <span class="sr-only">(current)</span></a>
                   </li>';
                 }
               ?>

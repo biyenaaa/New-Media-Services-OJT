@@ -22,23 +22,34 @@
 <html>
 	<head>
 		<title> Admin Homepage </title>
-		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<link rel="stylesheet" href="../style/style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 <body>
-<ul class="top-nav">
-	<a href="#">Home</a>
-	<!-- <a href="login/login.php">Sign-in</a>
-	<a href="registration/register.php">Sign-up</a> -->
-	<a href="../logout.php">Logout</a>
-</ul>
 
-<ul class="side-nav">
-	<a href="authors.php">Authors</a>
-	<a href="blogs.php">Blogs</a>
-	<a href="comments.php">Comments</a>
-</ul>
-
-<?php print("$output"); ?>
-
+<!-- <div class="content wrapper">
+	<div class="sideNavigation">
+		<ul class="nav nav-tabs">
+  			<li class="nav-item">
+    			<a class="nav-link" href="blogs.php">Blogs</a>
+  			</li>
+  			<li class="nav-item">
+    			<a class="nav-link" href="authors.php">Authors</a>
+  			</li>
+  			<li class="nav-item">
+    			<a class="nav-link" href="comments.php">Comments</a>
+  			</li>
+		</ul>
+	</div>
+	<div class="tabPages">
+		stuff
+	</div>
+</div> -->
+</div>
 </body>
 </html>
