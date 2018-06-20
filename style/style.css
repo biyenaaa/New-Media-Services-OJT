@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Brawler;
+    src: url(fonts/Brawler-Regular.ttf);
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+.navbar-brand{
+	font-family: "Brawler";
+	font-weight: bold;
+	text-shadow: 3px 3px 3px rgba(150, 150, 150, 1);
+}
