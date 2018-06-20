@@ -14,10 +14,10 @@
 
 			$db = new Db();
 			$comment = $db->query("INSERT INTO `comments` (`post_id`, `name`, `comment`, `date_commented`) VALUES ('$postid', '$name', '$comment', CURRENT_TIMESTAMP)");
-			//header("location: getpost.php");
+			header("location: getpost.php?post_id=".$_POST['post_id']);
 			//die(var_dump($comment));
 			//history.back();
-			echo "comment sent successfully!";
+			//echo "comment sent successfully!";
 		}
 	}
 ?>
