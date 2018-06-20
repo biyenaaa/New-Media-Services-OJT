@@ -26,7 +26,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>'.$title.'</title>
+	<title>Blog&White</title>
 </head>
 <body>
 
