@@ -46,7 +46,7 @@ $db = new Db();
 		<div class="accordion" id="accordionExample">
 			<?php
 			$acc_id = $_SESSION['user_id'];
-			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ");
+			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ORDER BY date_published DESC; ");
 
 			while($row = $result->fetch_assoc()){
 			$post_id = $row['post_id'];
@@ -69,7 +69,7 @@ $db = new Db();
 							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
 						</li>
 						<li>
-							<a href="delete.php" role="button" class="btn btn-danger" id="delete" name="edit" onClick=\"return confirm("Are you sure you want to delete " '.$title.')">Delete</a>
+							<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-danger" id="delete">Delete</a>
 						</li>
 					</ul>
 				</div>
