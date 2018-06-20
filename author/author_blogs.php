@@ -51,24 +51,54 @@ $db = new Db();
 			while($row = $result->fetch_assoc()){
 			$post_id = $row['post_id'];
 			$title = $row['title'];
-			$username = $row['content'];
 			$date_published = $row['date_published'];
 			$content = $row['content'];
 
+			if(!empty($post_id)){
+				$_SESSION['post_id'] = $post_id;
+				$_SESSION['title'] = $title;
+				$_SESSION['date_published'] = $date_published;
+			$_SESSION['content'] = $content;
+			}
+			
+
+
 			$output = '
-			<div class="container">
-				<h4>'.$title.'</h4>
-				<p>'.$date_published'</p>
-				<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View</button>
-				<div id="demo" class="collapse">
-					'.$content.'
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<ul class="list-inline">
+						<li><h4><strong>'.$title.'</strong></h4></li>
+						<li><p class="text-right"><small>'.$date_published.'</small></p></li>
+					</ul>
+					<ul class="list-inline">
+						<li>
+							<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#'.$post_id.'">View</button>
+						</li>
+						<li>
+							<a href="edit_blog.php" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
+						</li>
+						<li>
+							<a href="delete.php" role="button" class="btn btn-danger" id="delete" name="edit" onClick=\"return confirm("Are you sure you want to delete " '.$title.')">Delete</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="'.$post_id.'" class="collapse">
+					<div class="container-fluid">
+						<p>'.$content.'</p>
+					</div>
 				</div>
 			</div>
-
-
+			<br>
 			';
 
 			echo $output;
+			#end of output XD
+
+
+
+
+
 		}
 		?>
 
