@@ -54,15 +54,6 @@ $db = new Db();
 			$date_published = $row['date_published'];
 			$content = $row['content'];
 
-			if(!empty($post_id)){
-				$_SESSION['post_id'] = $post_id;
-				$_SESSION['title'] = $title;
-				$_SESSION['date_published'] = $date_published;
-			$_SESSION['content'] = $content;
-			}
-			
-
-
 			$output = '
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -75,7 +66,7 @@ $db = new Db();
 							<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#'.$post_id.'">View</button>
 						</li>
 						<li>
-							<a href="edit_blog.php" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
+							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
 						</li>
 						<li>
 							<a href="delete.php" role="button" class="btn btn-danger" id="delete" name="edit" onClick=\"return confirm("Are you sure you want to delete " '.$title.')">Delete</a>
