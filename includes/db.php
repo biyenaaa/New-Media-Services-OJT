@@ -22,13 +22,6 @@ if (!class_exists('Db')) {
 			return $result;
 		}
 
-		public function insert($query) {
-			$db = $this->connect();
-
-			$result = $db->query($query);
-
-			return $result;
-		}
 	}
 }
 ?>
