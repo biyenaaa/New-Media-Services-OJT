@@ -11,7 +11,7 @@
 			$password = $_POST['password'];
 
 			$db =  new Db();
-			$result = $db->query("SELECT acc_id, username FROM accounts WHERE username='$username' AND password=md5('$password');");
+			$result = $db->query("SELECT acc_id, username FROM accounts WHERE (username='$username' AND password=md5('$password') AND status = 1);");
 
 			// fetch acc_id
 				$user = $result->fetch_assoc();
@@ -23,7 +23,7 @@
 				$_SESSION['user_name'] = $user['username'];
 				//die(var_dump($user['username']));
 
-				header("location: ../author/profile.php");
+				header("location: ../author/author_blogs.php");
 			} else {
 				$_SESSION['errmsg'] = 'Username or Password is invalid.';
 				header("location: login.php");
