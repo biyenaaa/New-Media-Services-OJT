@@ -26,18 +26,18 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	    <link rel="stylesheet" href="style/style.css">
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="style/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
 <body>
-	<div class="navig"> 
-  		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navig"> 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <?php
         if(isset($acc_type)){
           if($acc_type=="0"){
@@ -51,12 +51,12 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
             echo '<a class="navbar-brand" href="index.php">Blog & White</a>';
         }
         ?>
-    			
-    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      			<span class="navbar-toggler-icon"></span>
-    			</button>
-    			<div class="collapse navbar-collapse" id="navbarText">
-      			<ul class="navbar-nav mr-auto">
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
               <?php
                 if(isset($checkUser)and$acc_type=='0'){
                   echo '
@@ -80,7 +80,7 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
                   </li>';
                 }
               ?>
-      			</ul>
+            </ul>
             <?php
               if(isset($checkUser)){
                 echo '
@@ -108,87 +108,89 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
                     </button>
                   </a>';
                 }
-  			    ?>
+            ?>
         </div>
       </nav>
     </div>
 
 
-	<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-		<div class="col-md-6 px-0">
-			<h1 class="display-4 font-italic">Blog&White</h1>
-			<p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-			<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-		</div>
-	</div>
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-12 px-0 headerblog">
+      <h1 class="display-4 font-italic">Blog&White</h1>
+      <p class="lead my-3">Share. Relive. Experience.</p>
 
-	<main role="main" class="container">
-		<div class="row">
+    </div>
+  </div>
 
-			<div class="container-fluid">
-				<h4>Latest Blogs</h4>
+  <main role="main" class="container">
+    <div class="row">
 
-				<?php
-				function limitTextWords($words = false, $limit = false, $stripTags = false, $ellipsis = false) 
-				{
-					if ($words && $limit) {
-						$words = ($stripTags ? strip_tags($words) : $words);
-						$ellipsis = ($ellipsis ? "..." : $ellipsis);
-						$words  = mb_strimwidth($words, 0, $limit, $ellipsis);
+      <div class="container-fluid">
+        <h4>Latest Blogs</h4>
 
-					}
-					return $words;
-				}
+        <?php
+        function limitTextWords($words = false, $limit = false, $stripTags = false, $ellipsis = false) 
+        {
+          if ($words && $limit) {
+            $words = ($stripTags ? strip_tags($words) : $words);
+            $ellipsis = ($ellipsis ? "..." : $ellipsis);
+            $words  = mb_strimwidth($words, 0, $limit, $ellipsis);
 
-
-
-				?>
-				<form action="post/getpost.php" method="GET">
-
-					<div class="row mb-2">
-						<input type="hidden" name="post_id" value="'.$postid.'">
-						<?php
-						while($row = mysqli_fetch_array($result)) {
-							$title = $row['title'];
-							$username = $row['username'];
-							$date_published = $row['date_published'];
-							$postid = $row['post_id'];
-							$content = $row['content'];
+          }
+          return $words;
+        }
 
 
 
-							$output = '
+        ?>
+        <form action="post/getpost.php" method="GET">
 
-
-							<div class="col-md-6">
-							<div class="card flex-md-row mb-4 box-shadow h-md-250">
-							<div class="card-body d-flex flex-column align-items-start">
-							<strong class="d-inline-block mb-2 text-primary">'.$username.'</strong>
-							<h3 class="mb-0">
-							<a class="text-dark" href="https://getbootstrap.com/docs/4.1/examples/blog/#">'.$title.'</a>
-							</h3>
-							<div class="mb-1 text-muted">'.$date_published.'</div>
-							<p class="card-text mb-auto">'.limitTextWords($content, 50, true, true).'</p>
-							<input type="hidden" name="post_id" value="'.$postid.'">
-							<button type="submit" class="btn btn-outline-dark">Continue Reading</a>
-							</div>
-							</div>
-							</div>
+          <div class="row mb-2">
+            <input type="hidden" name="post_id" value="'.$postid.'">
+            <?php
+            while($row = mysqli_fetch_array($result)) {
+              $title = $row['title'];
+              $username = $row['username'];
+              $date_published = $row['date_published'];
+              $postid = $row['post_id'];
+              $content = $row['content'];
 
 
 
+              $output = '
 
-							';
 
-							print("$output");
-						}
-						?>
-					</div>
-				</div></div></main></form>
-				<!--End of container-fluid-->
-				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+              <div class="col-md-6">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">'.$username.'</strong>
+              <h3 class="mb-0">
+              <a href=post/getpost.php?post_id='.$postid.' class="text-dark">'.$title.'</a>
+              </h3>
+              <div class="mb-1 text-muted">'.$date_published.'</div>
+              <p class="card-text mb-auto">'.limitTextWords($content, 50, true, true).'</p>
+              <form action="post/getpost.php" method="GET">
+              <input type="hidden" name="post_id" value="'.$postid.'">
+              <button type="submit" class="btn btn-outline-dark">Continue Reading</a>
+              </form>
+              </div>
+              </div>
+              </div>
 
-			</body>
-			</html>
+
+
+
+              ';
+
+              print("$output");
+            }
+            ?>
+          </div>
+        </div></div></main></form>
+        <!--End of container-fluid-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+      </body>
+      </html>
