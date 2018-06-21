@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title> Admin Homepage </title>
-		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
+		<link rel="stylesheet" type="text/css" href="../style/style.css">
 	</head>
 <body>
 <!-- <ul class="side-nav">
@@ -23,23 +23,57 @@
 	}
 
 	$db = new Db();
-	$blogs = $db->query("SELECT posts.post_id, accounts.username, posts.title, (DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW()) AS days FROM posts INNER JOIN accounts ON posts.acc_id=accounts.acc_id;");
+	$blogs = $db->query("SELECT posts.post_id, accounts.username, posts.title, posts.status, posts.date_published AS days FROM posts INNER JOIN accounts ON posts.acc_id=accounts.acc_id;");
 
+?>
+	<div class="page-header text-center"><h1>Blogs</h1></div>
+	<div class=" container col col-sm-8 ">
+	<table class="table table-bordered">
+		<thead>
+		    <tr>
+		      <th scope="col">Title</th>
+		      <th scope="col">Author</th>
+		      <th scope="col">Date Published</th>
+		      <th scope="col">Post</th>
+		    </tr>
+  		</thead>
+<?php
 	while($rowcom = mysqli_fetch_array($blogs)) {
 				$post_id = $rowcom['post_id'];
 				$username = $rowcom['username'];
 				$title = $rowcom['title'];
 				$days = $rowcom['days'];
+				$status = $rowcom['status'];
 
-				$output = '<tr> '.$title.' <i> '.$days.' day/s ago by '.$username.'</i> <tr>';
-				
-				echo '<div class="content"><table>';
-				echo '<form action="publish.php" method="get">';
-					print("$output");
-				echo '<input type="hidden" name="postId" value="'.$post_id.'">';
-				echo '<input type="submit" name="enable" value="publish">
-				<input type="submit" name="disable" value="unpublish" formaction="unpublish.php"> </form></table> </div>';
+				echo '
+						<tr>
+							<td>
+								'.$title.'
+							</td>
+							<td>
+								'.$username.'
+							</td>
+
+							<td>
+								'.$days.'
+							</td>
+							<td>
+								<form action="publish.php" method="get">
+								<input type="hidden" name="postId" value="'.$post_id.'">';
+									if($status=="0"){
+										echo '<input class="btn-success" type="submit" name="enable" value="publish">';
+									}
+									else{
+										echo '<input class="btn-danger" type="submit" name="disable" value="unpublish" formaction="unpublish.php">';
+									}
+									echo'
+								</form>
+							</td>
+						</tr>
+					
+				';
 			}
+			echo "</table></div>";
 ?> 
 
 </body>

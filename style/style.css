@@ -32,6 +32,6 @@
 	border-width: thin;
 }
 
-a:link{
-	color: #666666;
+.title{
+	background-color: pink;
 }
