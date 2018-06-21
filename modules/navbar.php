@@ -27,6 +27,9 @@
             echo '<a class="navbar-brand" href="../admin/homepage.php">Blog & White</a>';
           }
         }
+        else{
+            echo '<a class="navbar-brand" href="../index.php">Blog & White</a>';
+        }
         ?>
     			
     			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
