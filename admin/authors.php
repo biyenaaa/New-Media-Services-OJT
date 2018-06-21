@@ -5,12 +5,6 @@
 	</head>
 <body>
 
-<!-- <ul class="side-nav">
-	<a href="authors.php">Authors</a>
-	<a href="blogs.php">Blogs</a>
-	<a href="comments.php">Comments</a>
-</ul> -->
-
 <?php 
 	include "../includes/db_config.php";
 	include "../includes/db.php";
@@ -24,21 +18,56 @@
 	}
 
 	$db = new Db();
-	$authors = $db->query("SELECT acc_id, username, (DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW()) AS days FROM `accounts` WHERE acc_type=0");
+	$authors = $db->query("SELECT acc_id, username, date_registered AS days, status  FROM `accounts` WHERE acc_type=0");
+	?>
 
+	<div class="page-header text-center"><h1>Author Accounts</h1></div>
+	<div class=" container col col-sm-8 ">
+	<table class="table table-bordered table-hover">
+		<thead>
+		    <tr>
+		      <th scope="col">Username</th>
+		      <th scope="col">Date Joined</th>
+		      <th scope="col">Account</th>
+		    </tr>
+  		</thead>
+
+	<?php
 	while($rowcom = mysqli_fetch_array($authors)) {
 				$acc_id = $rowcom['acc_id'];
 				$username = $rowcom['username'];
 				$days = $rowcom['days'];
-
-				$output = '<tr> '.$username.' <i> joined '.$days.' day/s ago</i> <tr>';
+				$status = $rowcom['status'];
 				
-				echo '<div class="content"><table>';
-				echo '<form action="enableAccount.php" method="get">';
-					print("$output");
-				echo '<input type="hidden" name="accId" value="'.$acc_id.'">';
-				echo '<input type="submit" name="enable" value="enable">
-				<input type="submit" name="disable" value="disable" formaction="disableAccount.php"> </form></table> </div>';
+				echo '
+						<tr>
+							<td>
+								'.$username.'
+							</td>
+							<td>
+								'.$days.'
+							</td>
+							<td>
+								<form action="enableAccount.php" method="get">
+								<input type="hidden" name="accId" value="'.$acc_id.'">';
+									if($status=="0"){
+										echo '<input class="btn-success" type="submit" name="enable" value="enable">';
+									}
+									else{
+										echo '<input class="btn-danger" type="submit" name="disable" value="disable" formaction="disableAccount.php">';
+									}
+									echo'
+								</form>
+							</td>
+						</tr>
+					
+				';
+				// echo '<div class="content"><table>';
+				// echo '<form action="enableAccount.php" method="get">';
+				// 	print("$output");
+				// echo '<input type="hidden" name="accId" value="'.$acc_id.'">';
+				// echo '<input type="submit" name="enable" value="enable">
+				// <input type="submit" name="disable" value="disable" formaction="disableAccount.php"> </form></table> </div>';
 			}
 ?> 
 
