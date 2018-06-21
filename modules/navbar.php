@@ -19,12 +19,14 @@
     <div class="navig"> 
   		<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <?php
+        if(isset($acc_type)){
           if($acc_type=="0"){
             echo '<a class="navbar-brand" href="../index.php">Blog & White</a>';
           }
           else{
             echo '<a class="navbar-brand" href="../admin/homepage.php">Blog & White</a>';
           }
+        }
         ?>
     			
     			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
