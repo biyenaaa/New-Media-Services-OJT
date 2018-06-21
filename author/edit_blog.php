@@ -2,6 +2,8 @@
 include "../includes/db_config.php";
 include "../includes/db.php";
 require_once "../includes/session.php";
+include "../modules/navbar.php";
+include "../modules/footer.php";
 
 
 $error = "";
@@ -47,7 +49,7 @@ while($row = $result ->fetch_assoc()){
 <head>
 	<title>Editting Blog</title>
 </head>
-<body>
+<body style="padding-bottom: 10%;">
 	<div class="col-12 col-sm-9">
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="edit-blog-post">
 			<div class="container-fluid">

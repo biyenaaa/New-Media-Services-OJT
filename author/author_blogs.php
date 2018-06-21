@@ -3,7 +3,7 @@ include "../includes/db_config.php";
 include "../includes/db.php";
 include "../includes/session.php";
 include "../modules/navbar.php";
-
+include "../modules/footer.php";
 
 $error = "";
 $db = new Db();
@@ -20,7 +20,7 @@ $db = new Db();
 	<title>My Blogs</title>
 
 </head>
-<body>
+<body style="padding-bottom: 10%;">
 <!-- 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
