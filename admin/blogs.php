@@ -43,7 +43,8 @@
 				echo '
 						<tr>
 							<td>
-								'.$title.'
+								<a href=../post/getpost.php?post_id='.$post_id.'> '.$title.'
+								</a>
 							</td>
 							<td>
 								'.$username.'
