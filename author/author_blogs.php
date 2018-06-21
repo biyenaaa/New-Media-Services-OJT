@@ -46,7 +46,7 @@ $db = new Db();
 		<div class="accordion" id="accordionExample">
 			<?php
 			$acc_id = $_SESSION['user_id'];
-			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' ORDER BY date_published DESC; ");
+			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' AND status = 1 ORDER BY date_published DESC; ");
 
 			while($row = $result->fetch_assoc()){
 			$post_id = $row['post_id'];
