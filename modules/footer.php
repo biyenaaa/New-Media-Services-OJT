@@ -1,6 +1,7 @@
 <style>
 .footer {
     position: fixed;
+    bottom: 0%;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -9,6 +10,7 @@
     color: black;
     text-align: center;
     font-size: 2vh;
+    float: bottom;
 }
 
 </style>

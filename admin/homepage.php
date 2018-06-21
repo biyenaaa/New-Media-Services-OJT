@@ -56,7 +56,7 @@
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 <body>
-	<div style="margin-top: 10%;" class="container col col-sm-10 card-group">
+	<div style="margin-top: 10%;" class="wrapper container col col-sm-10 card-group">
 	  <div class="card">
 	    <div class="card-body">
 	      <center><h5 class="card-title">Blogs</h5></center>
