@@ -25,21 +25,48 @@
 
 	$db = new Db();
 	$comments = $db->query("SELECT c.comment_id, c.name, c.comment, c.date_commented FROM comments as c NATURAL JOIN posts ORDER BY c.date_commented DESC;");
-
+?>
+	<div class="page-header text-center"><h1>Comments</h1></div>
+	<div class=" container col col-sm-8 ">
+	<table class="table table-bordered table-hover">
+		<thead>
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Comment</th>
+		      <th scope="col">Date Commented</th>
+		      <th scope="col"></th>
+		    </tr>
+  		</thead>
+<?php
 	while($rowcom = mysqli_fetch_array($comments)) {
 				$comment_id = $rowcom['comment_id'];
 				$name = $rowcom['name'];
 				$comment = $rowcom['comment'];
-				$datecommented = $rowcom['date_commented'];
+				$dateCommented = $rowcom['date_commented'];
 
-				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
+				echo '
+						<tr>
+							<td>
+								'.$name.'
+							</td>
+							<td>
+								'.$comment.'
+							</td>
+							<td>
+								'.$dateCommented.'
+							</td>
+							<td>
+								<form action="deleteComment.php" method="get">
+									<input type="hidden" name="commentId" value="'.$comment_id.'">
+									<input class="btn-danger" type="submit" value="delete"></form>
+							</td>
+						</tr>
+					
+				';
+				// echo '<div class="content"><table>';
 				
-				echo '<div class="content"><table>';
-				echo '<form action="deleteComment.php" method="get">';
-					print("$output");
-				echo '<input type="hidden" name="commentId" value="'.$comment_id.'">';
-				echo '<input type="submit" value="delete"></form></table> </div>';
 			}
+			echo "</table></div>";
 ?> 
 
 </body>

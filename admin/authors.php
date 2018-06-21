@@ -69,6 +69,7 @@
 				// echo '<input type="submit" name="enable" value="enable">
 				// <input type="submit" name="disable" value="disable" formaction="disableAccount.php"> </form></table> </div>';
 			}
+			echo "</table></div>";
 ?> 
 
 </body>
