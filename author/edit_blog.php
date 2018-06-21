@@ -12,6 +12,7 @@ if(isset($_POST['update'])){
 	$title = $_POST['title'];
 	$content = $_POST['content'];
 	$date_published = date('Y/m/d H:i:s');
+	#die(var_dump($date_published))
 
 	if(empty($title) || empty($content)){
 		if(empty($title)){
@@ -22,8 +23,7 @@ if(isset($_POST['update'])){
 			echo "<font color = 'red'>Content is empty</font></br>";
 		}
 	}else{
-		$edit = $db -> query("UPDATE posts SET title='$title' content='$content' WHERE post_id=$id AND acc_id='$acc_id' ");
-		die("<pre>".$edit."</pre>");
+		$edit = $db -> query("UPDATE posts SET title='$title', content='$content', date_published='$date_published' WHERE post_id=$id AND acc_id='$acc_id' ;");
 		header("Location: author_blogs.php");
 	}
 }
@@ -37,8 +37,6 @@ while($row = $result ->fetch_assoc()){
 	$content = $row['content'];
 	$date_published = $row['date_published']; 
 }
-
-
 
 
 
@@ -60,10 +58,10 @@ while($row = $result ->fetch_assoc()){
 				<br><br>
 
 				<p>Blog: </p>
-				<textarea name="content" cols="100" rows="15" placeholder="Enter text here..." required ><?php echo $content ;?></textarea>
+				<textarea name="content" cols="100" rows="15" placeholder="Enter text here..." required ><?php echo $content ;?>&#133;</textarea>
 
 				<div class="container-fluid">
-					<input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
+					<input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
 					<input type="submit" name="update" value="Update">
 				</div>
 
