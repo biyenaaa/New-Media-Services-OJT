@@ -62,12 +62,6 @@
 						</tr>
 					
 				';
-				// echo '<div class="content"><table>';
-				// echo '<form action="enableAccount.php" method="get">';
-				// 	print("$output");
-				// echo '<input type="hidden" name="accId" value="'.$acc_id.'">';
-				// echo '<input type="submit" name="enable" value="enable">
-				// <input type="submit" name="disable" value="disable" formaction="disableAccount.php"> </form></table> </div>';
 			}
 			echo "</table></div>";
 ?> 

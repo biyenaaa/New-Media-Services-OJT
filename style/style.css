@@ -15,13 +15,6 @@
 	text-shadow: 3px 3px 3px rgba(150, 150, 150, 1);
 }
 
-.sideNavigation{
-	height: inherit;
-	background-color: #f5f5ef;
-	margin-top: 5vh;
-	color: #666666;
-}
-
 .content{
 	margin-left: 10%;
 	margin-right: 10%;
@@ -32,21 +25,3 @@
 	border-width: thin;
 }
 
-.title{
-	background-color: pink;
-}
-
-.status_box{
-	height: 20vh;
-	width: 40vh;
-	border-style: solid;
-	border-width: thin;	
-}
-
-.status_box_head{
-	height: 3vh;
-	border-bottom:solid;
-	border-width: thin;
-	text-align: center;
-	background-color: pink;
-}

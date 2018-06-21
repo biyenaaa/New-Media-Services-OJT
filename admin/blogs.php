@@ -4,11 +4,6 @@
 		<link rel="stylesheet" type="text/css" href="../style/style.css">
 	</head>
 <body>
-<!-- <ul class="side-nav">
-	<a href="authors.php">Authors</a>
-	<a href="blogs.php">Blogs</a>
-	<a href="comments.php">Comments</a>
-</ul> -->
 
 <?php 
 	include "../includes/db_config.php";
