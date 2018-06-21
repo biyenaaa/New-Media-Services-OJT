@@ -24,7 +24,7 @@ $db = new Db();
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="">
-					<a href="#">Profile</a>
+					<a href="../index.php">Home</a>
 				</li>
 
 				<li role="presentation" class="active">
@@ -63,7 +63,7 @@ $db = new Db();
 					</ul>
 					<ul class="list-inline">
 						<li>
-							<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#'.$post_id.'">View</button>
+							<a href=../post/getpost.php?post_id='.$post_id.' role="button" class="btn btn-primary" id="comments">View</a>
 						</li>
 						<li>
 							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
@@ -72,12 +72,6 @@ $db = new Db();
 							<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-danger" id="delete">Delete</a>
 						</li>
 					</ul>
-				</div>
-				
-				<div id="'.$post_id.'" class="collapse">
-					<div class="container-fluid">
-						<p>'.$content.'</p>
-					</div>
 				</div>
 			</div>
 			<br>
