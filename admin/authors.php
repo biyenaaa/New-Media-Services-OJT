@@ -3,7 +3,7 @@
 		<title> Admin Homepage </title>
 		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
 	</head>
-<body>
+<body style="padding-bottom: 20px">
 
 <?php 
 	include "../includes/db_config.php";
@@ -62,14 +62,9 @@
 						</tr>
 					
 				';
-				// echo '<div class="content"><table>';
-				// echo '<form action="enableAccount.php" method="get">';
-				// 	print("$output");
-				// echo '<input type="hidden" name="accId" value="'.$acc_id.'">';
-				// echo '<input type="submit" name="enable" value="enable">
-				// <input type="submit" name="disable" value="disable" formaction="disableAccount.php"> </form></table> </div>';
 			}
 			echo "</table></div>";
+include "../modules/footer.php";
 ?> 
 
 </body>

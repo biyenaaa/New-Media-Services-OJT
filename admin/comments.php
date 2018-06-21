@@ -3,13 +3,7 @@
 		<title> Admin Homepage </title>
 		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
 	</head>
-<body>
-
-<!-- <ul class="side-nav">
-	<a href="authors.php">Authors</a>
-	<a href="blogs.php">Blogs</a>
-	<a href="comments.php">Comments</a>
-</ul> -->
+<body style="padding-bottom: 20px">
 
 <?php 
 	include "../includes/db_config.php";
@@ -67,6 +61,7 @@
 				
 			}
 			echo "</table></div>";
+include "../modules/footer.php";
 ?> 
 
 </body>

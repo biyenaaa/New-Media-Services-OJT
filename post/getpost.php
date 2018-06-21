@@ -1,8 +1,9 @@
 <?php
 	include "../includes/db_config.php";
 	include "../includes/db.php";
-
-	session_start();
+	include "../includes/session.php";
+	include "../modules/navbar.php";
+	include "../modules/footer.php";
 
 	$db = new Db();
 	if($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -28,38 +29,42 @@
 <head>
 	<title>Blog&White</title>
 </head>
-<body>
+<body style="padding-bottom: 20px;">
+	<div class="container wrapper">
 
-<?php
-	echo '<h1> '.$title.' </h1>';
-	echo '<h2> Author: '.$username.' '.$datepublished.' </h2>';
-	echo '<p> '.$content.' <p>';
-?>
+		<div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group">
+    		<label for="exampleFormControlTextarea1 container"><h1><?php echo "$title" ?></h1></label>
+    		 by: <?php echo "$username"; ?><br/>
+    		 Date Posted: <?php echo "$datepublished"; ?>
+    		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10">	<?php echo "$content" ?></textarea>
+		</div>
 
-<br><br>
+	<div style="padding-top: 10px">
+		<?php
+		while($rowcom = mysqli_fetch_array($comments)) {
+						$name = $rowcom['name'];
+						$comment = $rowcom['comment'];
+						$datecommented = $rowcom['date_commented'];
 
-<h3>Comments</h3>
-
-<?php
-while($rowcom = mysqli_fetch_array($comments)) {
-				$name = $rowcom['name'];
-				$comment = $rowcom['comment'];
-				$datecommented = $rowcom['date_commented'];
-
-				$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
-				
-				echo '<table>';
-					print("$output");
-				echo '</table>';
-			}
-?>
-
-<h4>Leave a comment:</h4>
-<form class="comment" action="comment.php" method="POST">
-	<input type="text" name="name" placeholder="Name">
-	<input type="text" name="comment" placeholder="Comment">
-	<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
-	<button type="submit">Enter</button>
+						$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
+						
+						echo '<table>';
+							print("$output");
+						echo '</table>';
+					}
+		?>
+	</div>
+	
+	<div class="containern">
+		<h6>Leave a comment:</h6>
+		<form class="comment" action="comment.php" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="comment" placeholder="Comment">
+		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
+		<button type="submit">Enter</button>
 </form>
+	</div>
+
+</div>
 </body>
 </html>
