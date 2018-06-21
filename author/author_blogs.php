@@ -1,8 +1,9 @@
 <?php
 include "../includes/db_config.php";
 include "../includes/db.php";
+include "../includes/session.php";
+include "../modules/navbar.php";
 
-session_start();
 
 $error = "";
 $db = new Db();
@@ -15,12 +16,12 @@ $db = new Db();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 	<title>My Blogs</title>
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
+<!-- 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="">
@@ -40,7 +41,7 @@ $db = new Db();
 				</li>
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div class="container-fluid">
 		<div class="accordion" id="accordionExample">
@@ -55,23 +56,21 @@ $db = new Db();
 			$content = $row['content'];
 
 			$output = '
-			<div class="panel panel-default">
-				<div class="panel-heading">
+			<div class="container col col-sm-5 card panel panel-default">
+				<div class=" card-body panel-heading">
 					<ul class="list-inline">
 						<li><h4><strong>'.$title.'</strong></h4></li>
 						<li><p class="text-right"><small>'.$date_published.'</small></p></li>
 					</ul>
+					<div class="btn-group">
 					<ul class="list-inline">
-						<li>
+						<li class="container-fluid">
 							<a href=../post/getpost.php?post_id='.$post_id.' role="button" class="btn btn-primary" id="comments">View</a>
-						</li>
-						<li>
 							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
-						</li>
-						<li>
 							<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-danger" id="delete">Delete</a>
 						</li>
 					</ul>
+					</div>
 				</div>
 			</div>
 			<br>
