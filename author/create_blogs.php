@@ -2,6 +2,8 @@
 include "../includes/db_config.php";
 include "../includes/db.php";
 require_once "../includes/session.php";
+include "../modules/navbar.php";
+include "../modules/footer.php";
 
 $error = "";
 $db = new Db();
@@ -14,6 +16,7 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
 
     if(isset($title) && isset($content)){
         $result = $db->query("INSERT INTO posts(title, content, acc_id) VALUES ('$title', '$content', '$acc_id')");
+        header("location: author_blogs.php");
     }else{
         echo $error;
     }
@@ -28,12 +31,11 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>My Profile - Adding a Blog</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-default">
+<body style=" padding-bottom: 10%; ">
+<!--     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <ul class="nav nav-tabs">
                 <li role="presentation" class="">
@@ -53,23 +55,16 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 
 
-    <div class="container-fluid">
-        <?php 
-        if (isset($_SESSION['user_name'])){
-            echo "<h3>Welcome author <b>".$_SESSION['user_name']."</b></h3>";
-        }
-        ?>
-    </div>
 
     <div class="container-fluid">
         <div class="col-12 col-sm-3">
 
         </div>
 
-        <div class="col-12 col-sm-9">
+        <div class="containter col-12 col-sm-9">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="blog-post">
                 <div class="container-fluid">
                     <h4>Create a new blog</h4>

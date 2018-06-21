@@ -29,7 +29,7 @@
 <head>
 	<title>Blog&White</title>
 </head>
-<body style="padding-bottom: 20px;">
+<body style="padding-bottom: 10%;">
 	<div class="container wrapper">
 
 		<div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group">
@@ -38,6 +38,16 @@
     		 Date Posted: <?php echo "$datepublished"; ?>
     		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10">	<?php echo "$content" ?></textarea>
 		</div>
+
+	<div class="containern">
+		<h6>Leave a comment:</h6>
+		<form class="comment" action="comment.php" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="comment" placeholder="Comment">
+		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
+		<button type="submit">Enter</button>
+		</form>
+	</div>
 
 	<div style="padding-top: 10px">
 		<?php
@@ -53,16 +63,6 @@
 						echo '</table>';
 					}
 		?>
-	</div>
-	
-	<div class="containern">
-		<h6>Leave a comment:</h6>
-		<form class="comment" action="comment.php" method="POST">
-		<input type="text" name="name" placeholder="Name">
-		<input type="text" name="comment" placeholder="Comment">
-		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
-		<button type="submit">Enter</button>
-</form>
 	</div>
 
 </div>
