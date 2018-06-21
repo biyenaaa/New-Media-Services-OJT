@@ -17,6 +17,31 @@
 
 		$output = '<div> '.$username.' joined '.$date.' </div>';
 	}
+
+	// number published blogs
+	$data = $db->query("SELECT count(post_id) AS count FROM posts WHERE status=1");
+	$row = mysqli_fetch_array($data);
+	$published = $row['count'];
+
+	// number of unpublished blogs
+	$data = $db->query("SELECT count(post_id) AS count FROM posts WHERE status=0");
+	$row = mysqli_fetch_array($data);
+	$unpublished = $row['count'];
+
+	// number of enabled accounts
+	$data = $db->query("SELECT count(acc_id) AS count FROM accounts WHERE status=1");
+	$row = mysqli_fetch_array($data);
+	$enabled = $row['count'];
+
+	// number of disabled accounts
+	$data = $db->query("SELECT count(acc_id) AS count FROM accounts WHERE status=0");
+	$row = mysqli_fetch_array($data);
+	$disabled = $row['count'];
+
+	// number of comments
+	$data = $db->query("SELECT count(comment_id) AS count FROM comments");
+	$row = mysqli_fetch_array($data);
+	$comments = $row['count'];
 ?> 
 
 <html>
@@ -31,7 +56,38 @@
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 <body>
-
+	<div style="margin-top: 10%;" class="container col col-sm-10 card-group">
+	  <div class="card">
+	    <div class="card-body">
+	      <center><h5 class="card-title">Blogs</h5></center>
+	      <p class="card-text">
+	      	Published blogs: <?php echo "$published"; ?>
+	      </p>
+	      <p class="card-text">
+	      	Unpublished blogs: <?php echo "$unpublished" ?>
+	      </p>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <div class="card-body">
+	      <center><h5 class="card-title">Author Accounts</h5></center>
+	      <p class="card-text">
+	      	Enabled accounts: <?php echo "$enabled" ?>
+	      </p>
+	      <p class="card-text">
+	      	Disabled Accounts: <?php echo "$disabled" ?>
+	      </p>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <div class="card-body">
+	      <center><h5 class="card-title">Comments</h5></center>
+	      <p class="card-text">
+	      	Comments: <?php echo "$comments" ?>
+	      </p>
+	    </div>
+	  </div>
+	</div>
 <!-- <div class="content wrapper">
 	<div class="sideNavigation">
 		<ul class="nav nav-tabs">

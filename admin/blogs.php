@@ -61,10 +61,10 @@
 								<form action="publish.php" method="get">
 								<input type="hidden" name="postId" value="'.$post_id.'">';
 									if($status=="0"){
-										echo '<input class="btn-success" type="submit" name="enable" value="publish">';
+										echo '<input class="btn btn-outline-primary" type="submit" name="enable" value="publish">';
 									}
 									else{
-										echo '<input class="btn-danger" type="submit" name="disable" value="unpublish" formaction="unpublish.php">';
+										echo '<input class="btn btn-outline-danger" type="submit" name="disable" value="unpublish" formaction="unpublish.php">';
 									}
 									echo'
 								</form>

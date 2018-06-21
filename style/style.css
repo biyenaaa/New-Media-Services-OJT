@@ -35,3 +35,18 @@
 .title{
 	background-color: pink;
 }
+
+.status_box{
+	height: 20vh;
+	width: 40vh;
+	border-style: solid;
+	border-width: thin;	
+}
+
+.status_box_head{
+	height: 3vh;
+	border-bottom:solid;
+	border-width: thin;
+	text-align: center;
+	background-color: pink;
+}

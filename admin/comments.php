@@ -58,7 +58,7 @@
 							<td>
 								<form action="deleteComment.php" method="get">
 									<input type="hidden" name="commentId" value="'.$comment_id.'">
-									<input class="btn-danger" type="submit" value="delete"></form>
+									<input class="btn btn-outline-danger" type="submit" value="delete"></form>
 							</td>
 						</tr>
 					
