@@ -3,11 +3,21 @@ include "../includes/db_config.php";
 include "../includes/db.php";
 include "../includes/session.php";
 include "../modules/navbar.php";
-include "../modules/footer.php";
+
 
 $error = "";
 $db = new Db();
 
+function limitTextWords($words = false, $limit = false, $stripTags = false, $ellipsis = false) 
+{
+	if ($words && $limit) {
+	$words = ($stripTags ? strip_tags($words) : $words);
+	$ellipsis = ($ellipsis ? "..." : $ellipsis);
+	$words  = mb_strimwidth($words, 0, $limit, $ellipsis);
+
+}
+return $words;
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,28 +31,7 @@ $db = new Db();
 
 </head>
 <body style="padding-bottom: 10%;">
-<!-- 	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<ul class="nav nav-tabs">
-				<li role="presentation" class="">
-					<a href="../index.php">Home</a>
-				</li>
-
-				<li role="presentation" class="active">
-					<a href="author_blogs.php"><span class="glyphicon glyphicon-list-alt"></span> My Blogs</a>
-				</li>
-
-				<li role="presentation" class="">
-					<a href="create_blogs.php"><span class="glyphicon glyphicon-plus"></span> Create a New Blog</a>
-				</li>
-
-				<li role="presentation" class="">
-					<a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-				</li>
-			</ul>
-		</div>
-	</nav> -->
-
+	<br>
 	<div class="container-fluid">
 		<div class="accordion" id="accordionExample">
 			<?php
@@ -56,42 +45,57 @@ $db = new Db();
 			$content = $row['content'];
 
 			$output = '
-			<div class="container col col-sm-5 card panel panel-default">
+			<div class="container col col-sm-6 card panel panel-default">
 				<div class=" card-body panel-heading">
 					<ul class="list-inline">
-						<li><h4><strong>'.$title.'</strong></h4></li>
-						<li><p class="text-right"><small>'.$date_published.'</small></p></li>
-					</ul>
-					<div class="btn-group">
-					<ul class="list-inline">
-						<li class="container-fluid">
-							<a href=../post/getpost.php?post_id='.$post_id.' role="button" class="btn btn-primary" id="comments">View</a>
-							<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-primary" id="edit" name="edit">Edit</a>
-							<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-danger" id="delete">Delete</a>
+						<li>
+							<p class="text-right"><small>'.$date_published.'</small></p>
+							<h3><strong>'.$title.'</strong></h3>
+							
 						</li>
 					</ul>
-					</div>
+
 				</div>
-			</div>
-			<br>
-			';
 
-			echo $output;
-			#end of output XD
+				<div class="card-body panel-body" style="border-color:#d3d3d3;">
+
+					<p class="lead">'.limitTextWords($content, 50, true, true).'</p>
+
+					</div>
+					<div class="card-body panel-footer">
+						<div class="btn-group">
+							<ul class="list-inline">
+								<li class="container-fluid">
+									<a href=../post/getpost.php?post_id='.$post_id.' role="button" class="btn btn-outline-dark" id="comments">View</a>
+									<a href="edit_blog.php?id='.$post_id.'" role="button" class="btn btn-outline-dark" id="edit" name="edit">Edit</a>
+									<a href=delete_blogs.php?post_id='.$post_id.' role="button" class="btn btn-outline-dark" id="delete">Delete</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<br>
+				';
+
+				echo $output;
+				#end of output XD
 
 
 
 
 
-		}
-		?>
+			}
+			?>
 
+		</div>
 	</div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<?php include "../modules/footer.php"; ?>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
 
 </body>
 </html>
