@@ -45,17 +45,23 @@
                 }
                 if(isset($checkUser)and$acc_type=='1'){
                   echo '
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="../admin/homepage.php"> Admin <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="../admin/blogs.php">Blogs <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="../admin/authors.php"> Authors <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="../admin/comments.php"> Comments <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../author/author_blogs.php"> My Blogs <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../author/create_blogs.php"> Create Blog <span class="sr-only">(current)</span></a>
                   </li>';
                 }
               ?>
