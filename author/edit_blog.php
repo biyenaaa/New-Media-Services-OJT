@@ -50,6 +50,8 @@ while($row = $result ->fetch_assoc()){
 	<title>Editting Blog</title>
 </head>
 <body style="padding-bottom: 10%;">
+	<br>
+	<center>
 	<div class="col-12 col-sm-9">
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="edit-blog-post">
 			<div class="container-fluid">
@@ -72,5 +74,6 @@ while($row = $result ->fetch_assoc()){
 
 		</form>
 	</div>
+</center>
 </body>
 </html>
