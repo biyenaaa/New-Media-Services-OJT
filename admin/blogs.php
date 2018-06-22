@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../style/style.css">
 	</head>
 <body style="padding-bottom: 10%;">
-
+<br>
 <?php 
 	// checks if the user logged in is an admin account
 	if($acc_type!=1){

@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
 	</head>
 <body style="padding-bottom: 10%;">
+<br>
 
 <?php 
 

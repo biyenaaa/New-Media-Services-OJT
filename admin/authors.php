@@ -23,6 +23,7 @@
 	$authors = $db->query("SELECT acc_id, username, date_registered AS days, status  FROM `accounts` WHERE acc_type=0");
 	?>
 
+	<br>
 	<div class="page-header text-center"><h1>Author Accounts</h1></div>
 	<div class=" container col col-sm-8 ">
 	<table class="table table-bordered table-hover">
