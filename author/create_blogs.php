@@ -68,7 +68,7 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="blog-post">
                 <div class="container-fluid">
                     <br>
-                    <h4>Create a new blog</h4>
+                    <h4>Create a New Blog</h4>
                     <p>Title: </p>
                     <input type="text" name="title" required>
                     <?php
