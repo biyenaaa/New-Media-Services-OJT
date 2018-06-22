@@ -145,33 +145,34 @@ if(isset($_POST['Submit'])){
 			<div class="row">
 				<div class="container-fluid">
 
-			<h4><a href="register.php">Registration</a></h4>
+					<h4><a href="register.php">Registration</a></h4>
 
-				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="registration">
-					<table class="table table-hover">
-						<div class="form-group">
-							<label for="username"> Username</label>
-								<input class="form-control" type="text" name="username" required>
+					<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="registration">
+						<table class="table table-hover">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="username"> Username</label>
+									<input class="form-control" type="text" name="username" required>
+								</div>
+
+								<div class="form-group">
+									<label for="password"> Password</label>
+									<input class="form-control" type="password" name="password" required>
+								</div>
+
+								<div class="form-group">
+									<label for="email"> Email</label>
+									<input class="form-control" type="email" name="email" required>
+								</div>
+
+								<div class="form-group">
+									<input class="button" type="submit" name="Submit" value="Register">
+								</div>
 							</div>
-
-							<div class="form-group">
-							<label for="password"> Password</label>
-								<input class="form-control" type="password" name="password" required>
-							</div>
-
-							<div class="form-group">
-							<label for="email"> Email</label>
-								<input class="form-control" type="email" name="email" required>
-							</div>
-
-							<div class="form-group">
-							<input class="button" type="submit" name="Submit" value="Register">
-						</div>
-
-					</table>
-				</form>
+						</table>
+					</form>
+				</div>
 			</div>
-		</div>
 		</main>
 
 	</body>
