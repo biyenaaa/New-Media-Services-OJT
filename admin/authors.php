@@ -3,7 +3,7 @@
 		<title> Admin Homepage </title>
 		<link rel="stylesheet" type="text/css" href="../style/Admin.css">
 	</head>
-<body style="padding-bottom: 20px">
+<body style="padding-bottom: 10%;">
 
 <?php 
 	include "../includes/db_config.php";
