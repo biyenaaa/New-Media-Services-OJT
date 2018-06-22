@@ -18,7 +18,6 @@
             $status = $row['status'];
         }
 	include "../modules/navbar.php";
-	include "../modules/footer.php";
 
 	$db = new Db();
 	if($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -43,18 +42,21 @@
 <html>
 <head>
 	<title>Blog&White</title>
+	<link rel="stylesheet" src="../style/style.css">
 </head>
 <body style="padding-bottom: 10%;">
 	<div class="container wrapper">
 
-		<div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group">
+		<!-- <div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group"> -->
     		<label for="exampleFormControlTextarea1 container"><h1><?php echo "$title" ?></h1></label>
-    		 by: <?php echo "$username"; ?><br/>
-    		 Date Posted: <?php echo "$datepublished"; ?>
-    		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10">	<?php echo "$content" ?></textarea>
-		</div>
-
-	<div class="container">
+    		<span class="align-middle">
+    			by: <?php echo "$username"; ?>
+    		</span>
+    		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10"><?php echo "$content" ?></textarea>
+    		<span class="float-sm-right">
+    		 	Date Posted: <?php echo "$datepublished"; ?>
+    		</span>
+    	<div class="divider"></div>
 		<h6>Leave a comment:</h6>
 		<form class="comment" action="comment.php" method="POST">
 		<div><input type="text" name="name" placeholder="Name" required></div>
@@ -62,24 +64,31 @@
 		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
 		<button type="submit">Enter</button>
 		</form>
-	</div>
+
+	<div class="divider"></div>	
 
 	<div style="padding-top: 10px">
 		<?php
 		while($rowcom = mysqli_fetch_array($comments)) {
-						$name = $rowcom['name'];
-						$comment = $rowcom['comment'];
-						$datecommented = $rowcom['date_commented'];
+			$name = $rowcom['name'];
+			$comment = $rowcom['comment'];
+			$datecommented = $rowcom['date_commented'];
 
-						$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
-						
-						echo '<table>';
-							print("$output");
-						echo '</table>';
+			echo '
+				<div class="card col-6">
+	  				<div class="card-body">
+		    			<h5 class="card-title">'.$name.'</h5>
+		    			<p class="card-text">
+		      				'.$comment.'
+		    			</p>
+	  				</div>
+	  			<h6 class="card-subtitle mb-2 text-muted text-right">'.$datecommented.'</h6>
+				</div>
+			';
 					}
 		?>
 	</div>
-
 </div>
+<?php include "../modules/footer.php"; ?>
 </body>
 </html>

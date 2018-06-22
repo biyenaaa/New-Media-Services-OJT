@@ -70,6 +70,9 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
                 if(isset($checkUser)and$acc_type=='1'){
                   echo '
                   <li class="nav-item">
+                    <a class="nav-link" href="admin/homepage.php"> Admin <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="admin/blogs.php">Blogs <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
@@ -98,7 +101,7 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
                   echo '
                   <a href="login/login.php">
                     <button type="button" class="btn btn-sm">
-                        <span class="glyphicon glyphicon-log-in">Log in</span> 
+                        <span class="glyphicon glyphicon-log-in">Sign in</span> 
                     </button>
                   </a>
                   <div class="divider"></div>

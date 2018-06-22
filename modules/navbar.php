@@ -20,12 +20,7 @@
   		<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <?php
         if(isset($acc_type)){
-          if($acc_type=="0"){
             echo '<a class="navbar-brand" href="../index.php">Blog & White</a>';
-          }
-          else{
-            echo '<a class="navbar-brand" href="../admin/homepage.php">Blog & White</a>';
-          }
         }
         else{
             echo '<a class="navbar-brand" href="../index.php">Blog & White</a>';
@@ -49,6 +44,9 @@
                 }
                 if(isset($checkUser)and$acc_type=='1'){
                   echo '
+                  <li class="nav-item">
+                    <a class="nav-link" href="../admin/homepage.php"> Admin <span class="sr-only">(current)</span></a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="../admin/blogs.php">Blogs <span class="sr-only">(current)</span></a>
                   </li>
@@ -78,7 +76,7 @@
                   echo '
                   <a href="../login/login.php">
                     <button type="button" class="btn btn-sm">
-                        <span class="glyphicon glyphicon-log-in">Log in</span> 
+                        <span class="glyphicon glyphicon-log-in">Sign in</span> 
                     </button>
                   </a>
                   <div class="divider"></div>
