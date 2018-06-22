@@ -38,6 +38,22 @@ return $words;
 			$acc_id = $_SESSION['user_id'];
 			$result = $db -> query("SELECT post_id, title, content, date_published FROM posts WHERE acc_id='$acc_id' AND status = 1 ORDER BY date_published DESC; ");
 
+			$noBlogs = '
+	            <center><div class="card-body panel-footer">
+					<div class="btn-group">
+						<ul class="list-inline">
+							<li class="container-fluid">
+								<p>You have no blogs yet.</p>
+								<a href="create_blogs.php" role="button" class="btn btn-outline-dark" id="create">Write Blog</a>
+							</li>
+						</ul>
+					</div>
+				</div></center>
+             ';
+			if (mysqli_num_rows($result)==0){
+                print("$noBlogs");
+              }
+
 			while($row = $result->fetch_assoc()){
 			$post_id = $row['post_id'];
 			$title = $row['title'];
@@ -77,14 +93,7 @@ return $words;
 				</div>
 				<br>
 				';
-
-				echo $output;
-				#end of output XD
-
-
-
-
-
+                print("$output");
 			}
 			?>
 
