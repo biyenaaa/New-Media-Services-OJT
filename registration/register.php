@@ -145,10 +145,10 @@ if(isset($_POST['Submit'])){
 			<div class="row">
 				<div class="container-fluid">
 
-					<h4><a href="register.php">Registration</a></h4>
-
+					<h4>Registration</h4>
+					
 					<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="registration">
-						<table class="table table-hover">
+						
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label for="username"> Username</label>
@@ -166,14 +166,13 @@ if(isset($_POST['Submit'])){
 								</div>
 
 								<div class="form-group">
-									<input class="button" type="submit" name="Submit" value="Register">
+									<input class="btn btn-outline-dark"git type="submit" name="Submit" value="Register">
 								</div>
 							</div>
-						</table>
 					</form>
 				</div>
 			</div>
 		</main>
-
+<?php include "../modules/footer.php"; ?>
 	</body>
 	</html>
