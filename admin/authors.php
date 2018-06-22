@@ -53,7 +53,7 @@
 								<form action="enableAccount.php" method="get">
 								<input type="hidden" name="accId" value="'.$acc_id.'">';
 									if($status=="0"){
-										echo '<input class="btn btn-outline-primary" type="submit" name="enable" value="enable">';
+										echo '<input class="btn btn-outline-dark" type="submit" name="enable" value="enable">';
 									}
 									else{
 										echo '<input class="btn btn-outline-danger" type="submit" name="disable" value="disable" formaction="disableAccount.php">';
