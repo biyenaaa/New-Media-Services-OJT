@@ -23,6 +23,7 @@
 	$authors = $db->query("SELECT acc_id, username, date_registered AS days, status  FROM `accounts` WHERE acc_type=0");
 	?>
 
+	<br>
 	<div class="page-header text-center"><h1>Author Accounts</h1></div>
 	<div class=" container col col-sm-8 ">
 	<table class="table table-bordered table-hover">
@@ -53,7 +54,7 @@
 								<form action="enableAccount.php" method="get">
 								<input type="hidden" name="accId" value="'.$acc_id.'">';
 									if($status=="0"){
-										echo '<input class="btn btn-outline-primary" type="submit" name="enable" value="enable">';
+										echo '<input class="btn btn-outline-dark" type="submit" name="enable" value="enable">';
 									}
 									else{
 										echo '<input class="btn btn-outline-danger" type="submit" name="disable" value="disable" formaction="disableAccount.php">';

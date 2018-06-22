@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../style/style.css">
 	</head>
 <body style="padding-bottom: 10%;">
-
+<br>
 <?php 
 	// checks if the user logged in is an admin account
 	if($acc_type!=1){
@@ -58,7 +58,7 @@
 								<form action="publish.php" method="get">
 								<input type="hidden" name="postId" value="'.$post_id.'">';
 									if($status=="0"){
-										echo '<input class="btn btn-outline-primary" type="submit" name="enable" value="publish">';
+										echo '<input class="btn btn-outline-dark" type="submit" name="enable" value="publish">';
 									}
 									else{
 										echo '<input class="btn btn-outline-danger" type="submit" name="disable" value="unpublish" formaction="unpublish.php">';
