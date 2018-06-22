@@ -19,7 +19,7 @@
 	}
 
 	$db = new Db();
-	$blogs = $db->query("SELECT posts.post_id, accounts.username, posts.title, posts.status, posts.date_published AS days FROM posts INNER JOIN accounts ON posts.acc_id=accounts.acc_id;");
+	$blogs = $db->query("SELECT posts.post_id, accounts.username, posts.title, posts.status, posts.date_published AS days FROM posts INNER JOIN accounts ON posts.acc_id=accounts.acc_id ORDER BY posts.date_published DESC;");
 
 ?>
 	<div class="page-header text-center"><h1>Blogs</h1></div>

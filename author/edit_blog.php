@@ -53,7 +53,7 @@ while($row = $result ->fetch_assoc()){
 	<div class="col-12 col-sm-9">
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="edit-blog-post">
 			<div class="container-fluid">
-				<h4>Update <?php echo $title ;?> blog</h4>
+				<h4>Edit <?php echo $title ;?> blog</h4>
 				<p>Title: </p>
 				<input type="text" name="title" value="<?php echo $title ?>" required>
 
@@ -64,7 +64,7 @@ while($row = $result ->fetch_assoc()){
 
 				<div class="container-fluid">
 					<input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
-					<input type="submit" name="update" value="Update">
+					<input type="submit" name="update" value="Update Blog" class="btn btn-outline-dark">
 				</div>
 
 
