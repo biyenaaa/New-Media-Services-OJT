@@ -36,7 +36,7 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-<body style="bottom-padding:10%">
+<body style="padding-bottom:10%">
   <div class="navig"> 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <?php
