@@ -58,15 +58,16 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
     </nav> -->
 
 
-
+    <center>
     <div class="container-fluid">
         <div class="col-12 col-sm-3">
 
         </div>
 
-        <div class="containter col-12 col-sm-9">
+        <div class="container col-12 col-sm-9">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" name="blog-post">
                 <div class="container-fluid">
+                    <br>
                     <h4>Create a new blog</h4>
                     <p>Title: </p>
                     <input type="text" name="title" required>
@@ -82,6 +83,7 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
                     <br><br>
 
                     <p>Blog: </p>
+                    
                     <textarea name="content" cols="100" rows="15" placeholder="Enter text here..." required ></textarea>
 
                     <?php
@@ -94,14 +96,14 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
                     ?>
                 </div>
 
-                <div class="container-fluid">
+                <div class="container-fluid pull-right">
                     <button type="submit" name="Add" class="btn btn-outline-dark">Add to Blog</button>
                 </div>
             </form>
         </div>
 
     </div>
-
+</center>
 
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
