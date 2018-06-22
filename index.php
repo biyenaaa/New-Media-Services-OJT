@@ -30,7 +30,7 @@ $result = $db->query("SELECT p.post_id, a.username, p.title, p.date_published, p
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="icon" href="../style/images/logo.png">
+      <link rel="icon" href="style/images/logo.png">
       <link rel="stylesheet" href="style/style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
