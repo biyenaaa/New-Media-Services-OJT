@@ -18,13 +18,14 @@
 	}
 
 	$db = new Db();
-	$comments = $db->query("SELECT c.comment_id, c.name, c.comment, c.date_commented FROM comments as c NATURAL JOIN posts ORDER BY c.date_commented DESC;");
+	$comments = $db->query("SELECT c.comment_id, c.name, c.comment, c.date_commented, p.title, p.post_id FROM comments as c NATURAL JOIN posts as p ORDER BY c.date_commented DESC;");
 ?>
 	<div class="page-header text-center"><h1>Comments</h1></div>
 	<div class=" container col col-sm-8 ">
 	<table class="table table-bordered table-hover">
 		<thead>
 		    <tr>
+		      <th scope="col">Post</th>
 		      <th scope="col">Name</th>
 		      <th scope="col">Comment</th>
 		      <th scope="col">Date Commented</th>
@@ -33,13 +34,19 @@
   		</thead>
 <?php
 	while($rowcom = mysqli_fetch_array($comments)) {
+				$title = $rowcom['title'];
 				$comment_id = $rowcom['comment_id'];
 				$name = $rowcom['name'];
 				$comment = $rowcom['comment'];
 				$dateCommented = $rowcom['date_commented'];
+				$post_id = $rowcom['post_id'];
 
 				echo '
 						<tr>
+							<td><a href=../post/getpost.php?post_id='.$post_id.'> '.$title.'
+								</a>
+							</td>
+							</td>
 							<td>
 								'.$name.'
 							</td>
