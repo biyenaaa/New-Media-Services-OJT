@@ -59,7 +59,7 @@
 	<div style="margin-top: 10%;" class="wrapper container col col-sm-10 card-group">
 	  <div class="card">
 	    <div class="card-body">
-	      <center><h5 class="card-title">Blogs</h5></center>
+	      <center><h5 class="card-title"><a href="blogs.php">Blogs</a></h5></center>
 	      <p class="card-text">
 	      	Published blogs: <?php echo "$published"; ?>
 	      </p>
@@ -70,7 +70,7 @@
 	  </div>
 	  <div class="card">
 	    <div class="card-body">
-	      <center><h5 class="card-title">Author Accounts</h5></center>
+	      <center><h5 class="card-title"><a href="authors.php">Author Accounts</a></h5></center>
 	      <p class="card-text">
 	      	Enabled accounts: <?php echo "$enabled" ?>
 	      </p>
@@ -81,7 +81,7 @@
 	  </div>
 	  <div class="card">
 	    <div class="card-body">
-	      <center><h5 class="card-title">Comments</h5></center>
+	      <center><h5 class="card-title"><a href="comments.php">Comments</a></h5></center>
 	      <p class="card-text">
 	      	Comments: <?php echo "$comments" ?>
 	      </p>
