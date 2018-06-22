@@ -95,7 +95,7 @@ if(isset($_POST['Add']) && isset($_SESSION['user_id'])){
                 </div>
 
                 <div class="container-fluid">
-                    <input type="submit" name="Add" value="Add to Blog">
+                    <button type="submit" name="Add" class="btn btn-outline-dark">Add to Blog</button>
                 </div>
             </form>
         </div>
