@@ -42,6 +42,7 @@
 <html>
 <head>
 	<title>Blog&White</title>
+	<link rel="icon" href="../style/images/logo.png">
 	<link rel="stylesheet" src="../style/style.css">
 </head>
 <body style="padding-bottom: 10%;">
