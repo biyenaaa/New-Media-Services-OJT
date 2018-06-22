@@ -59,10 +59,10 @@
     	<div class="divider"></div>
 		<h6>Leave a comment:</h6>
 		<form class="comment" action="comment.php" method="POST">
-		<div><input type="text" name="name" placeholder="Name" required></div>
+		<div><input type="text" name="name" placeholder="Name" required></div><br>
 		<div><textarea rows="5" cols="60" name="comment" placeholder="Comment" required></textarea></div>
 		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
-		<button type="submit">Enter</button>
+		<button type="submit" class="btn btn-outline-dark">Enter</button>
 		</form>
 
 	<div class="divider"></div>	
