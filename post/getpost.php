@@ -18,7 +18,6 @@
             $status = $row['status'];
         }
 	include "../modules/navbar.php";
-	include "../modules/footer.php";
 
 	$db = new Db();
 	if($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -71,27 +70,25 @@
 	<div style="padding-top: 10px">
 		<?php
 		while($rowcom = mysqli_fetch_array($comments)) {
-						$name = $rowcom['name'];
-						$comment = $rowcom['comment'];
-						$datecommented = $rowcom['date_commented'];
+			$name = $rowcom['name'];
+			$comment = $rowcom['comment'];
+			$datecommented = $rowcom['date_commented'];
 
-						$output = '<tr> '.$name.' said '.$comment.' '.$datecommented.' <tr>';
-						
-						echo '<table>';
-							print("$output");
-						echo '</table>';
+			echo '
+				<div class="card col-6">
+	  				<div class="card-body">
+		    			<h5 class="card-title">'.$name.'</h5>
+		    			<p class="card-text">
+		      				'.$comment.'
+		    			</p>
+	  				</div>
+	  			<h6 class="card-subtitle mb-2 text-muted text-right">'.$datecommented.'</h6>
+				</div>
+			';
 					}
 		?>
 	</div>
-
-	<div class="card">
-	  <div class="card-header">
-	    Name
-	  </div>
-	  <div class="card-body">
-	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	  </div>
-	</div>
 </div>
+<?php include "../modules/footer.php"; ?>
 </body>
 </html>
