@@ -43,18 +43,21 @@
 <html>
 <head>
 	<title>Blog&White</title>
+	<link rel="stylesheet" src="../style/style.css">
 </head>
 <body style="padding-bottom: 10%;">
 	<div class="container wrapper">
 
-		<div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group">
+		<!-- <div style="padding-top: 20px;" class="col col-sm-10 card-group container form-group"> -->
     		<label for="exampleFormControlTextarea1 container"><h1><?php echo "$title" ?></h1></label>
-    		 by: <?php echo "$username"; ?><br/>
-    		 Date Posted: <?php echo "$datepublished"; ?>
-    		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10">	<?php echo "$content" ?></textarea>
-		</div>
-
-	<div class="container">
+    		<span class="align-middle">
+    			by: <?php echo "$username"; ?>
+    		</span>
+    		<textarea readonly class="form-control rounded-0 " id="exampleFormControlTextarea1" rows="10"><?php echo "$content" ?></textarea>
+    		<span class="float-sm-right">
+    		 	Date Posted: <?php echo "$datepublished"; ?>
+    		</span>
+    	<div class="divider"></div>
 		<h6>Leave a comment:</h6>
 		<form class="comment" action="comment.php" method="POST">
 		<div><input type="text" name="name" placeholder="Name"></div>
@@ -62,7 +65,8 @@
 		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
 		<button type="submit">Enter</button>
 		</form>
-	</div>
+
+	<div class="divider"></div>	
 
 	<div style="padding-top: 10px">
 		<?php
@@ -80,6 +84,14 @@
 		?>
 	</div>
 
+	<div class="card">
+	  <div class="card-header">
+	    Name
+	  </div>
+	  <div class="card-body">
+	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+	  </div>
+	</div>
 </div>
 </body>
 </html>
