@@ -57,17 +57,10 @@
     		<span class="float-sm-right">
     		 	Date Posted: <?php echo "$datepublished"; ?>
     		</span>
-    	<div class="divider"></div>
-		<h6>Leave a comment:</h6>
-		<form class="comment" action="comment.php" method="POST">
-		<div><input type="text" name="name" placeholder="Name" required></div><br>
-		<div><textarea rows="5" cols="60" name="comment" placeholder="Comment" required></textarea></div>
-		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
-		<button type="submit" class="btn btn-outline-dark">Enter</button>
-		</form>
-
+    	
 	<div class="divider"></div>	
 
+<!--Comment Section-->
 	<div style="padding-top: 10px">
 		<?php
 		while($rowcom = mysqli_fetch_array($comments)) {
@@ -76,7 +69,7 @@
 			$datecommented = $rowcom['date_commented'];
 
 			echo '
-				<div class="card col-6">
+				<div class="card col-8">
 	  				<div class="card-body">
 		    			<h5 class="card-title">'.$name.'</h5>
 		    			<p class="card-text">
@@ -85,10 +78,22 @@
 	  				</div>
 	  			<h6 class="card-subtitle mb-2 text-muted text-right">'.$datecommented.'</h6>
 				</div>
+				<br>
 			';
 					}
 		?>
 	</div>
+
+<!--Leave a comment-->
+	<div class="divider"></div>
+		<h6>Leave a comment:</h6>
+		<form class="comment" action="comment.php" method="POST">
+		<div><input type="text" name="name" placeholder="Name" required></div><br>
+		<div><textarea rows="5" cols="60" name="comment" placeholder="Comment" required></textarea></div>
+		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
+		<button type="submit" class="btn btn-outline-dark">Enter</button>
+		</form>
+
 </div>
 <?php include "../modules/footer.php"; ?>
 </body>
