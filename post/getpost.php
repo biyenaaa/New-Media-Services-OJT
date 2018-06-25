@@ -32,7 +32,7 @@
 			$datepublished = $row['date_published'];
 			$content = $row['content'];
 
-			$comments = $db->query("SELECT c.name, c.comment, c.date_commented FROM comments as c NATURAL JOIN posts WHERE posts.post_id = '$postid' ORDER BY c.date_commented DESC;");
+			$comments = $db->query("SELECT c.name, c.comment_content, c.date_commented FROM comments as c NATURAL JOIN posts WHERE posts.post_id = '$postid' ORDER BY c.date_commented DESC;");
 		}
 		
 	}
@@ -65,7 +65,7 @@
 		<?php
 		while($rowcom = mysqli_fetch_array($comments)) {
 			$name = $rowcom['name'];
-			$comment = $rowcom['comment'];
+			$comment = $rowcom['comment_content'];
 			$datecommented = $rowcom['date_commented'];
 
 			echo '
@@ -89,7 +89,7 @@
 		<h6>Leave a comment:</h6>
 		<form class="comment" action="comment.php" method="POST">
 		<div><input type="text" name="name" placeholder="Name" required></div><br>
-		<div><textarea rows="5" cols="60" name="comment" placeholder="Comment" required></textarea></div>
+		<div><textarea rows="5" cols="60" name="comment_content" placeholder="Comment" required></textarea></div>
 		<input type="hidden" name="post_id" value="<?=$_GET['post_id']?>">
 		<button type="submit" class="btn btn-outline-dark">Enter</button>
 		</form>

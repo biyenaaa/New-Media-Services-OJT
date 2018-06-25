@@ -23,7 +23,7 @@
 	}
 
 	$db = new Db();
-	$comments = $db->query("SELECT c.comment_id, c.name, c.comment, c.date_commented, p.title, p.post_id FROM comments as c NATURAL JOIN posts as p ORDER BY c.date_commented DESC;");
+	$comments = $db->query("SELECT c.comment_id, c.name, c.comment_content, c.date_commented, p.title, p.post_id FROM comments as c NATURAL JOIN posts as p ORDER BY c.date_commented DESC;");
 ?>
 	<div class="page-header text-center"><h1>Comments</h1></div>
 	<div class=" container col col-sm-8 ">
@@ -42,7 +42,7 @@
 				$title = $rowcom['title'];
 				$comment_id = $rowcom['comment_id'];
 				$name = $rowcom['name'];
-				$comment = $rowcom['comment'];
+				$comment = $rowcom['comment_content'];
 				$dateCommented = $rowcom['date_commented'];
 				$post_id = $rowcom['post_id'];
 
